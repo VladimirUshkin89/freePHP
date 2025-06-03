@@ -1,4 +1,6 @@
 <?php
+//Установка подразделения
+
 //$this->setVariable('city', 'город заполнен');
 
 // Получаем ID текущего Лида
@@ -8,6 +10,7 @@ $source = $this->getVariable('user_source');
 
 //$this->setVariable('city', $source);
 
+$imp = ["Импорт_", "импорт_"];
 $at = ["_АТ_", "_ат_", "_Ат_", "Автосалон_"];
 $tuning = ['_Тюнинг_', '_тюнинг_', "Тюнинг_" ];
 $ac = ["АС", "Ас", "ас", "Сервис_"];
@@ -15,7 +18,8 @@ $mz = ["_МЗ_", "_мз_", "_Detalno_", "_detalno_", "МЗ_"];
 $krd_city = ["Крд", "крд", "р263", "Р263", "Краснодар"];
 $msk_city = ["мск", "Мск", "Москва", "МСК"];
 
-if (inList($source, $at)) $this->setVariable('dep', 'at');
+if (inList($source, $imp)) $this->setVariable('dep', 'imp');
+elseif (inList($source, $at)) $this->setVariable('dep', 'at');
 elseif (inList($source, $tuning)) $this->setVariable('dep', 'tuning');
 elseif (inList($source, $ac)) $this->setVariable('dep', 'ac');
 elseif (inList($source, $mz)) $this->setVariable('dep', 'mz');
